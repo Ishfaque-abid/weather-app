@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkyCast – Weather App</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>🌤️ SkyCast</h1>
+    <div>
+      <button class="btn active" id="unitC" data-unit="C">°C</button>
+      <button class="btn" id="unitF" data-unit="F">°F</button>
+    </div>
+  </header>
+
+  <!-- Search -->
+  <form class="search" id="searchForm" autocomplete="off">
+    <input type="text" id="searchInput" placeholder="Search for a city (e.g. Dhaka, London, Tokyo)…" aria-label="Search city">
+    <button class="btn primary" type="submit">Search</button>
+  </form>
+  <ul class="results hidden" id="results"></ul>
+
+  <!-- Favorites (saved with localStorage) -->
+  <section class="panel">
+    <h2>⭐ Favorite Cities</h2>
+    <div class="favorites" id="favorites"></div>
+  </section>
+
+  <!-- Status area: loading / error / empty -->
+  <div class="panel state hidden" id="status"></div>
+
+  <!-- Weather content -->
+  <main id="weather" class="hidden">
+    <section class="panel" id="currentPanel"></section>
+
+    <section class="panel">
+      <h2>7-Day Forecast</h2>
+      <div class="filters" id="filters">
+        <button class="btn active" data-filter="all">All days</button>
+        <button class="btn" data-filter="rain">🌧️ Rain likely (≥ 50%)</button>
+        <button class="btn" data-filter="warm">☀️ Warm (≥ 30°C)</button>
+        <button class="btn" data-filter="cool">❄️ Cool (≤ 20°C)</button>
+      </div>
+      <div class="forecast" id="forecast"></div>
+      <div class="detail hidden" id="detail"></div>
+    </section>
+  </main>
+
+  <footer>Data from Open-Meteo.com • Preferences saved in your browser</footer>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
